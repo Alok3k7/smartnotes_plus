@@ -11,6 +11,12 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ["username", "email", "password1", "password2"]
 
+    def __init__(self, *args, **kwargs):
+        super(RegisterForm, self).__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.help_text = None  # Removes help text
+            field.widget.attrs.update({'class': 'form-control'})
+
 class NoteForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
 

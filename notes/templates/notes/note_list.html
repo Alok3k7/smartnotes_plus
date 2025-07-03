@@ -1,21 +1,23 @@
 {% extends "notes/base.html" %}
-
 {% block content %}
-<h2>Your Notes</h2>
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<h2 class="mb-4">Your Notes</h2>
+
+<div class="row">
     {% for note in notes %}
-    <div class="col">
-        <div class="card h-100">
-            <div class="card-body">
-                <h5 class="card-title">{{ note.title }}</h5>
-                <p class="card-text">{{ note.content|truncatewords:20 }}</p>
-                <a href="{% url 'note_update' note.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
-                <a href="{% url 'note_delete' note.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ note.title }}</h5>
+                    <p class="card-text">{{ note.content|safe|truncatewords:30 }}</p>
+                </div>
+                <div class="card-footer bg-white border-top-0 d-flex justify-content-between">
+                    <a href="{% url 'note_update' note.pk %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                    <a href="{% url 'note_delete' note.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                </div>
             </div>
         </div>
-    </div>
     {% empty %}
-    <p>No notes yet. <a href="{% url 'note_create' %}">Create one</a>.</p>
+        <p>No notes available. Click "New Note" to create one.</p>
     {% endfor %}
 </div>
 {% endblock %}

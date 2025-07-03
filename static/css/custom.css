@@ -1,0 +1,72 @@
+/* Apply a soft gradient background to the body */
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar branding */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffeb3b !important;
+}
+
+/* Buttons: add hover transition and colorful themes */
+.btn-outline-light {
+    border-color: #ffffff;
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-light:hover {
+    background: #00bcd4;
+    color: #000;
+}
+
+/* Cards for notes */
+.card {
+    background-color: #ffffffd9;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
+/* Note Titles */
+.card-title {
+    color: #3f51b5;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Delete and Edit buttons */
+.btn-danger, .btn-primary {
+    border-radius: 25px;
+    padding: 5px 15px;
+}
+
+/* Input focus effect */
+input:focus, textarea:focus, select:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 0.2rem rgba(0, 188, 212, 0.25);
+}
+
+/* Dark mode overrides */
+body.bg-dark {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+}
+
+body.bg-dark .card {
+    background-color: #37474f;
+    color: #fff;
+    border: 1px solid #546e7a;
+}
+
+body.bg-dark .card-title {
+    color: #ffeb3b;
+}
+
+body.bg-dark .btn-outline-light:hover {
+    background-color: #ffeb3b;
+    color: #000;
+}
